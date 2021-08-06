@@ -1,0 +1,110 @@
+@import 'variables';
+@import 'mixins';
+
+@mixin dateIconsSize320 {
+  width: 14px;
+  height: 14px;
+}
+.masterclasses {
+  margin-bottom: 30px;
+  padding-top: 25px;
+  padding-bottom: 60px;
+  background-color: $colorDark;
+
+  &__title {
+    margin-bottom: 14px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    color: $colorLight;
+  }
+
+  &__dateInfo--wrapped {
+    padding: 4px 0;
+    display: flex;
+  }
+  &__dateInfo {
+    flex: 0 1 50%;
+    color:$colorLight;
+
+    svg {
+      @include dateIconsSize320;
+    }
+  }
+}
+
+.masterclasses-head {
+
+  &__picture {
+    margin-bottom: 16px;
+    @include picture;
+  }
+  &__img {
+    @include img;
+  }
+  &__title {
+    margin-bottom: 5px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color:$colorLight;
+  }
+  &__text {
+    margin-bottom: 25px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 25px;
+    color:$colorLight;
+  }
+  &__link {
+    margin-bottom: 50px;
+    padding: 12px 22px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    color:$colorLight;
+  }
+}
+
+.masterclasses-foot {
+
+  &-article {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 30px;
+
+    &__picture {
+      margin-bottom: 16px;
+      @include picture;
+    }
+    &__img {
+      @include img;
+    }
+    &__title {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 16px;
+      color:$colorLight;
+    }
+  }
+}
+
+@media(min-width: 768px) {
+  .masterclasses-head {
+    display: flex;
+    gap: 30px;
+
+
+    &__picture,
+    &__info {
+      flex: 0 1 50%;
+    }
+  }
+
+  .masterclasses-foot {
+    &__list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

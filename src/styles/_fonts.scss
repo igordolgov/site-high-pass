@@ -1,0 +1,306 @@
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Light'), local('TTFirsNeue-Light'),
+      url('../fonts/TTFirsNeue-Light.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Regular'), local('TTFirsNeue-Regular'),
+      url('../fonts/TTFirsNeue-Regular.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Bold Italic'), local('TTFirsNeue-BoldItalic'),
+      url('../fonts/TTFirsNeue-BoldItalic.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue DemiBold Italic'), local('TTFirsNeue-DemiBoldItalic'),
+      url('../fonts/TTFirsNeue-DemiBoldItalic.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-DemiBoldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue ExtraLight'), local('TTFirsNeue-ExtraLight'),
+      url('../fonts/TTFirsNeue-ExtraLight.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Thin Italic'), local('TTFirsNeue-ThinItalic'),
+      url('../fonts/TTFirsNeue-ThinItalic.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-ThinItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Medium Italic'), local('TTFirsNeue-MediumItalic'),
+      url('../fonts/TTFirsNeue-MediumItalic.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue DemiBold'), local('TTFirsNeue-DemiBold'),
+      url('../fonts/TTFirsNeue-DemiBold.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-DemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Black Italic'), local('TTFirsNeue-BlackItalic'),
+      url('TTFirsNeue-BlackItalic.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/TTFirsNeue-BlackItalic.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-BlackItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Light Italic'), local('TTFirsNeue-LightItalic'),
+      url('../fonts/TTFirsNeue-LightItalic.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue ExtraLight Italic'), local('TTFirsNeue-ExtraLightItalic'),
+      url('../fonts/TTFirsNeue-ExtraLightItalic.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-ExtraLightItalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Bold'), local('TTFirsNeue-Bold'),
+      url('../fonts/TTFirsNeue-Bold.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue ExtraBold'), local('TTFirsNeue-ExtraBold'),
+      url('../fonts/TTFirsNeue-ExtraBold.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Medium'), local('TTFirsNeue-Medium'),
+      url('../fonts/TTFirsNeue-Medium.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Thin'), local('TTFirsNeue-Thin'),
+      url('../fonts/TTFirsNeue-Thin.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue ExtraBold Italic'), local('TTFirsNeue-ExtraBoldItalic'),
+      url('../fonts/TTFirsNeue-ExtraBoldItalic.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-ExtraBoldItalic.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Black'), local('TTFirsNeue-Black'),
+      url('../fonts/TTFirsNeue-Black.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Firs Neue';
+  src: local('TT Firs Neue Italic'), local('TTFirsNeue-Italic'),
+      url('../fonts/TTFirsNeue-Italic.woff2') format('woff2'),
+      url('../fonts/TTFirsNeue-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+
+
+
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Black Italic'), local('Roboto-BlackItalic'),
+      url('../fonts/Roboto-BlackItalic.woff2') format('woff2'),
+      url('../fonts/Roboto-BlackItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+      url('../fonts/Roboto-Bold.woff2') format('woff2'),
+      url('../fonts/Roboto-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'),
+      url('../fonts/Roboto-BoldItalic.woff2') format('woff2'),
+      url('../fonts/Roboto-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Light Italic'), local('Roboto-LightItalic'),
+      url('../fonts/Roboto-LightItalic.woff2') format('woff2'),
+      url('../fonts/Roboto-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), local('Roboto-Regular'),
+      url('../fonts/Roboto-Regular.woff2') format('woff2'),
+      url('../fonts/Roboto-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Thin Italic'), local('Roboto-ThinItalic'),
+      url('../fonts/Roboto-ThinItalic.woff2') format('woff2'),
+      url('../fonts/Roboto-ThinItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Black'), local('Roboto-Black'),
+      url('../fonts/Roboto-Black.woff2') format('woff2'),
+      url('../fonts/Roboto-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'),
+      url('../fonts/Roboto-MediumItalic.woff2') format('woff2'),
+      url('../fonts/Roboto-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Thin'), local('Roboto-Thin'),
+      url('../fonts/Roboto-Thin.woff2') format('woff2'),
+      url('../fonts/Roboto-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Light'), local('Roboto-Light'),
+      url('../fonts/Roboto-Light.woff2') format('woff2'),
+      url('../fonts/Roboto-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Italic'), local('Roboto-Italic'),
+      url('../fonts/Roboto-Italic.woff2') format('woff2'),
+      url('../fonts/Roboto-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+      url('../fonts/Roboto-Medium.woff2') format('woff2'),
+      url('../fonts/Roboto-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+

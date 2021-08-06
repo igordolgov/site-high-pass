@@ -1,0 +1,175 @@
+@import 'variables';
+@import 'fonts';
+@import 'header';
+@import 'hero';
+@import 'aboutUs';
+@import 'ourProjects';
+@import 'ourServices';
+@import 'masterclasses';
+@import 'contacts';
+@import 'footer';
+
+* {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+*::placeholder {
+  font-family: 'Roboto';
+}
+html {
+  scroll-behavior: smooth;
+  font-family: 'Roboto';
+  color: $colorDark;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'TT Firs Neue';
+}
+button {
+  cursor: pointer;
+}
+a {
+  $prop: color, background-color;
+  @include transition($prop);
+
+  padding: 3px;
+
+  &:not(.logo__link):focus-visible {
+    outline: none;
+    background-color: $colorMainFocus;
+  }
+  &:hover {
+    color: $colorMain;
+    background-color: transparent;
+  }
+  &:active {
+    color: $colorMainActive;
+  }
+}
+.container {
+  position: static;
+  width: 87%;
+  margin: auto;
+  @media(min-width: 512px) {
+    width: 93%;
+  }
+  @media(min-width: 1400px) {
+    width: 1290px;
+  }
+}
+.btn,
+.btn-full {
+  $props: color, background-color, border-color;
+  @include transition($props);
+  border: 2px solid $colorMain;
+  color: $colorLight;
+  display: inline-block;
+}
+.btn {
+  &:focus-visible {
+    outline: none;
+    background-color: $colorMainFocusDark !important;
+    color: $colorLight;
+  }
+  &:hover {
+    background-color: $colorMain;
+    color: $colorLight;
+  }
+  &:active {
+    border-color: $colorMainActive;
+    background-color: $colorMainActive;
+    color: $colorLight;
+  }
+}
+.btn-full {
+  background-color: $colorMain;
+  // &:focus {
+  //   outline: none;
+  // }
+  &:focus-visible {
+    outline: none;
+    border-color: $colorMainActive;
+    background-color: $colorMain !important;
+    color: $colorLight;
+  }
+  &:hover {
+    border-color: $colorMainFocusDark;
+    background-color: $colorMainFocusDark;
+    color: $colorLight;
+  }
+  &:active {
+    border-color: $colorMainActive;
+    background-color: $colorMainActive;
+    color: $colorLight;
+  }
+}
+.hashtag {
+  position: absolute;
+  padding-top: 10px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  &--wrapped {
+    padding: 4px 7px;
+    background-color: $colorBackgroudHashtag;
+    color: $colorLight;
+  }
+}
+.ourPhone__link {
+  font-family: 'TT Firs Neue';
+  white-space: nowrap;
+  svg {
+    color: inherit;
+  }
+}
+.socials {
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__item + &__item{
+    margin-left: 21px;
+  }
+  &__link {
+    @include transition ('color, border-color');
+
+    $width: 30px;
+    $height: 30px;
+
+    width: $width;
+    height: $height;
+    padding: 0;
+    display: inline-block;
+    svg{
+      $props: color, border-color;
+      @include transition($props);
+      width: $width;
+      height: $height;
+      color: $colorDarkLight2;
+    }
+    &:focus-visible{
+      background-color: transparent !important;
+      svg{
+        color: $colorMainFocusDark;
+      }
+    }
+    &:hover{
+      svg{
+        color: $colorMain;
+      }
+    }
+    &:active{
+      svg{
+        color: $colorMainActive;
+      }
+    }
+  }
+}

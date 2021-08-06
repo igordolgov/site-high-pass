@@ -1,0 +1,57 @@
+
+mixin ourProjects__ButtosTabs($size)
+  .ourProjects__steps--wrapped(class=$size)
+    button.ourProjects__stepBtn.ourProjects__stepBtn--1.btn-full(tabindex="-1") 1
+    button.ourProjects__stepBtn.ourProjects__stepBtn--2 2
+
+mixin ourProjects__list(pictures, className)
+  each pic in pictures
+    if pic.big === false
+      li.ourProjects-item--wrapped(class=className)
+        article.ourProjects-item
+          picture.ourProjects-item__picture(class=pic.unique)
+            source(srcset=pic.x1024webp type="image/webp" media="(min-width: 1024px)")
+            source(srcset=pic.x768webp type="image/webp" media="(min-width: 768px)")
+            source(srcset=pic.x320webp type="image/webp" media="(max-width: 512px)")
+            img.ourProjects-item__img(loading="lazy" srcset=pic.x320jpg src=pic.pic alt=pic.alt)
+          .ourProjects-item__hashtag.hashtag
+            span.hashtag--wrapped #{pic.hashtag}
+          h4.ourProjects-item__title
+            a.ourProjects-item__titleLink(href=pic.href) #{pic.title}
+          p.ourProjects-item__date--wrapped
+            span.ourProjects-item__dateIcon
+              svg
+                use(xlink:href="img/svg/sprite.svg#calendar")
+            span.ourProjects-item__date #{pic.date}
+
+    if pic.big === true
+      li.ourProjects-item--wrapped(class=className)
+        article.ourProjects-item.ourProjects-item--big
+          picture.ourProjects-item__picture(class=pic.unique)
+            source(srcset=pic.x1024webp type="image/webp" media="(min-width: 1024px)")
+            source(srcset=pic.x768webp type="image/webp" media="(min-width: 768px)")
+            source(srcset=pic.x320webp type="image/webp" media="(max-width: 512px)")
+            img.ourProjects-item__img(loading="lazy" srcset=pic.x320jpg src=pic.pic alt=pic.alt)
+          .ourProjects-item__hashtag.hashtag
+            span.hashtag--wrapped #{pic.hashtag}
+          .ourProjects-item__textContent
+            p.ourProjects-item__date--wrapped
+              span.ourProjects-item__dateIcon
+                svg
+                  use(xlink:href="img/svg/sprite.svg#calendar")
+              span.ourProjects-item__date #{pic.date}
+            h4.ourProjects-item__title #{pic.title}
+            p.ourProjects-item__text #{pic.text}
+            a.ourProjects-item__link.btn(href=pic.href) О проекте
+
+
+
+section.ourProjects#ourProjects
+  .container
+    .ourProjects__head
+      h3.ourProjects__title Наши проекты
+      +ourProjects__ButtosTabs('sm')
+    ul.ourProjects__list
+      +ourProjects__list(picturesList1, 'ourProjects__list--1 active')
+      +ourProjects__list(picturesList2, 'ourProjects__list--2')
+    +ourProjects__ButtosTabs('lg')

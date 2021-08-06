@@ -1,0 +1,67 @@
+mixin ourServicesItem(pictures)
+  each pic in pictures
+    li.ourServices-item--wrapped
+        article.ourServices-item
+          picture.ourServices-item__picture
+            source(srcset=pic.picWebp type="image/webp" media="(min-width: 1400px)")
+            source(srcset=pic.x1024webp type="image/webp" media="(min-width: 1024px)")
+            source(srcset=pic.x768webp type="image/webp" media="(min-width: 768px)")
+            source(srcset=pic.x320webp type="image/webp" media="(max-width: 512px)")
+            img.ourServices-item__img(loading="lazy" srcset=pic.x320jpg src=pic.pic alt=pic.alt)
+          .ourServices-item__info--wrapped
+            h4.ourServices-item__title #{pic.title}
+            p.ourServices-item__text #{pic.text}
+            a.ourServices-item__link(href=pic.href)
+              span Подробнее
+              svg
+                use(xlink:href="img/svg/sprite.svg#arrow")
+mixin ourServicesExecutedWorksItem(pictures)
+  each pic in pictures
+    li.ourServices-executedWorks__item
+      a.ourServices-executedWorks__link(href=pic.href)
+        picture.ourServices-item__picture
+          source(srcset=pic.picWebp type="image/webp" media="(min-width: 1400px)")
+          source(srcset=pic.x1024webp type="image/webp" media="(min-width: 1024px)")
+          source(srcset=pic.x768webp type="image/webp" media="(min-width: 768px)")
+          source(srcset=pic.x320webp type="image/webp" media="(max-width: 512px)")
+          img.ourServices-item__img(loading="lazy" srcset=pic.x320jpg src=pic.pic alt=pic.alt)
+
+section.ourServices#ourServices
+  .container
+    .ourServices__head
+      h2.ourServices__title Услуги студии
+      .ourServices-switch--wrapped
+        button.ourServices-switch__button.ourServices-switch__button--1.active(tabindex="-1") Основной перечень
+        button.ourServices-switch__button.ourServices-switch__button--2 Услуги по ретуши
+        span.ourServices-switch__underLine
+    .ourServices__list--wrapped
+      ul.ourServices__list.ourServices__list--1.active
+        +ourServicesItem(pictures1)
+      ul.ourServices__list.ourServices__list--2
+        +ourServicesItem(pictures2)
+    .ourServices-item-promo__wrapper
+      .ourServices-item-promo--wrapped
+        article.ourServices-item-promo
+          picture.ourServices-item__picture
+            source(srcset="/img/ourServices/ourServices_promo.webp" type="image/webp" media="(min-width: 1400px)")
+            source(srcset="/img/ourServices/ourServices_promo_1024.webp" type="image/webp" media="(min-width: 1024px)")
+            source(srcset="/img/ourServices/ourServices_promo_768.webp" type="image/webp" media="(min-width: 768px)")
+            source(srcset="/img/ourServices/ourServices_promo_320.webp" type="image/webp" media="(max-width: 512px)")
+            img.ourServices-item__img(loading="lazy" srcset="/img/ourServices/ourServices_promo_320.jpg" src="/img/ourServices/ourServices_promo.jpg" alt="Фотография. Девушка с дллинными волосами мечтательно закрыла глаза")
+          .ourServices-item-promo__head
+            .ourServices-item-promo__title--wrapped
+              h2.ourServices-item-promo__title Акция!
+              p Только в июне
+            p.ourServices-item-promo__bonusInfo 20%
+          .ourServices-item-promo__foot
+            p.ourServices-item-promo__text 1,5 часа портретной съемки + ретушь 10 снимков
+            a.ourServices-item-promo__link.btn-full(href='#') Узнать больше
+      .ourServices-executedWorks--wrapped
+        section.ourServices-executedWorks.executedWorks--1.active
+          h2.ourServices-executedWorks__title Выполненные работы
+          ul.ourServices-executedWorks__list
+            +ourServicesExecutedWorksItem(picturesExecutedWorks1)
+        section.ourServices-executedWorks.executedWorks--2
+          h2.ourServices-executedWorks__title Выполненные работы
+          ul.ourServices-executedWorks__list
+            +ourServicesExecutedWorksItem(picturesExecutedWorks2)

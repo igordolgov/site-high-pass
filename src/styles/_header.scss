@@ -1,0 +1,381 @@
+@import 'variables';
+@import 'mixins';
+
+@mixin iconsSize320 {
+  width: 20px;
+  height: 20px;
+}
+
+$_headerRowHead: 70px;
+$_headerRowFoot: 45px;
+
+.header {
+
+  a:not(.socials__link, .logo__link):focus-visible {
+    outline: none;
+    background-color: $colorMainFocusDark;
+  }
+
+
+  width: 100%;
+  height: 115px;
+  margin-bottom: 34px;
+  background-image: linear-gradient(
+    to bottom,
+    $colorDark $_headerRowHead,
+    $colorDarkLight $_headerRowFoot
+  );
+
+  &__content {
+    position: static;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: $_headerRowHead $_headerRowFoot;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .socials__list {
+    display: none;
+  }
+}
+
+
+.logo {
+  top: 2px;
+  left: -3px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  &__link {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+
+    svg {
+      width: 112px;
+      height: 18px;
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  top: $_headerRowHead + 1;
+  left: 0;
+  width: 100vw;
+  height: 541px;
+  background-color: $colorDark;
+  font-family: 'TT Firs Neue';
+  transition: opacity 0.3s linear;
+  pointer-events: none;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+    z-index: 2;
+    pointer-events: all;
+
+
+    .ourPhone__link {
+      @include hiddenWithAbsOff;
+      position: absolute;
+    }
+  }
+  &__list {
+    @include hiddenWithAbs;
+    padding-top: 40px
+  }
+  &__list.active {
+    @include hiddenWithAbsOff;
+    position: absolute;
+  }
+  &__item + &__item{
+    margin-top: 30px;
+  }
+  &__link {
+    font-size: 16px;
+    line-height: 21px;
+    color: $colorLight;
+  }
+  .ourPhone__link {
+    @include hiddenWithAbs;
+    bottom: 35px;
+  }
+}
+
+.burger {
+  @include transition(opacity);
+  display: inline-flex;
+  grid-column: 1 / 2;
+  grid-row: 2 / 2;
+
+  &__button {
+    width: 20px;
+    height: 18px;
+  }
+  &__buttonClose {
+    @include closeButton($colorDarkLight6, $colorLight);
+    @include hiddenWithAbs;
+    @include iconsSize320;
+  }
+  &.active {
+    position: absolute;
+    top: 81px;
+    z-index: 3;
+    .burger__button {
+      @include hiddenWithAbs;
+    }
+    .burger__buttonClose {
+      @include hiddenWithAbsOff;
+      margin-bottom: 13px;
+    }
+  }
+
+  &__lines {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    border-top: 2px solid $colorLight;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      border-top: 2px solid $colorLight;
+    }
+    &::before {
+      width: 100%;
+      top: calc(50% - 2px);
+    }
+    &::after {
+      width: 50%;
+      bottom: 0;
+    }
+  }
+}
+
+.search {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  text-align: right;
+  &.active {
+    grid-column: 1 / 3;
+    .search__button {
+      @include hiddenWithAbs;
+    }
+    .search__buttonClose {
+      @include hiddenWithAbsOff;
+    }
+  }
+
+  &__form {
+    @include transition(opacity);
+    display: inline-flex;
+  }
+  &__form.active {
+    position: absolute;
+    top: -1px;
+    left: -0;
+    width: 100%;
+    height: 110%;
+    background-color: $colorDark;
+  }
+  &__input {
+    $props: opacity, border-color, color;
+    @include transition($props);
+    @include hiddenWithAbs;
+    width: 0;
+    border-bottom: 1px solid $colorDarkLight5;
+    color: $colorLight;
+    &::placeholder {
+      @include transition(color);
+      font-size: 14px;
+      line-height: 18px;
+      color: $colorDarkLight5;
+    }
+    &:hover {
+      border-color: $colorMain;
+    }
+    &:active {
+      border-color: $colorMain;
+    }
+    &:focus {
+      outline: none;
+      border-color: $colorMainActive;
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+  &__input.active {
+    @include hiddenWithAbsOff;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__button {
+    top: 2px;
+    right: 4px;
+    @include transition(opacity);
+    svg {
+      @include iconsSize320;
+      color: $colorLight;
+    }
+  }
+  &__buttonClose {
+    @include transition(opacity);
+    @include hiddenWithAbs;
+    @include iconsSize320;
+    @include closeButton($colorDarkLight2, $colorLight);
+    // background-color: $colorDarkLight2;
+  }
+}
+
+.ourPhone {
+  grid-column: 2 / 3;
+  grid-row: 2 / 2;
+  text-align: right;
+
+  &__link {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: $colorMain;
+
+
+    svg {
+      width: 18px;
+      height: 16px;
+      top: 3px;
+      position: relative;
+    }
+  }
+}
+@media(min-width: 768px) {
+  .header {
+    &__content {
+      grid-template-columns: 3fr 2fr 0.2fr;
+    }
+  }
+
+  .logo {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  .search {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    text-align: right;
+    &.active {
+      grid-column: 1 / 3;
+    }
+  }
+  .ourPhone {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    text-align: right;
+  }
+
+  .burger {
+    display: none;
+  }
+  .nav {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / 4;
+    grid-row: 2 / 2;
+    background-color: transparent;
+    opacity: 1;
+    z-index: 2;
+    pointer-events: all;
+
+    .container {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__list {
+      @include hiddenWithAbsOff;
+      position: relative;
+      height: 100%;
+      padding-top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__item + &__item{
+      margin-top: 0px;
+      // margin-left: 30px;
+    }
+  }
+}
+
+@media(min-width: 1024px) {
+  .header__content {
+    grid-template-columns: 1fr 5fr 1fr 1fr;
+  }
+
+  .nav {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+
+    &__list {
+      justify-content: space-around;
+    }
+  }
+
+  .ourPhone {
+    grid-column: 1 / 2;
+    grid-row: 2 / 2;
+  }
+
+  .search {
+    grid-column: 3 / 5;
+    grid-row: 2 / 2;
+    display: flex;
+    flex-direction: row-reverse;
+
+    &.active {
+      grid-column: 3 / 5;
+      .search__button {
+        @include hiddenWithAbsOff;
+      }
+      .search__buttonClose {
+        @include hiddenWithAbs;
+      }
+    }
+    &__form {
+      width: 100%;
+      height: 100%;
+    }
+    &__form.active {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+    }
+    &__input {
+      @include hiddenWithAbsOff;
+      width: 100%;
+    }
+  }
+  .socials__list{
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+    display: flex !important;
+    justify-content: space-around;
+  }
+}
+
+@media(min-width: 1300px) {
+  .ourPhone__link {
+    color: $colorLight;
+  }
+}

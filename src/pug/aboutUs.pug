@@ -1,0 +1,18 @@
+section.aboutUs#aboutUs
+  .container
+    .aboutUs--left
+      h3.aboutUs__title О студии
+      p.aboutUs__text.
+        В рамках спецификации современных стандартов, интерактивные прототипы, инициированные исключительно синтетически, ограничены исключительно образом мышления. Предварительные выводы неутешительны: высокотехнологичная концепция общественного уклада требует от нас анализа соответствующих условий активизации! Следует отметить, что семантический разбор внешних противодействий  фиксирует необходимость распределения внутренних резервов и ресурсов. Безусловно, граница обучения кадров предоставляет широкие возможности для первоочередных требований. Повседневная практика показывает, что глубокий уровень погружения предполагает независимые способы реализации новых принципов формирования материально-технической и кадровой базы. Приятно, граждане, наблюдать, как явные признаки институционализации являются только методом политического участия и нарушающими общечеловеческие нормы этики.
+    .aboutUs--right
+      picture.aboutUs__picture
+        source(srcset="/img/aboutUs/aboutUs_1.webp" type="image/webp" media="(min-width: 1400px)")
+        source(srcset="/img/aboutUs/aboutUs_1_1024.webp" type="image/webp" media="(min-width: 1024px)")
+        source(srcset="/img/aboutUs/aboutUs_1_768.webp" type="image/webp" media="(min-width: 768px)")
+        source(srcset="/img/aboutUs/aboutUs_1_320.webp" type="image/webp" media="(max-width: 512px)")
+        img.aboutUs__img(loading="lazy" srcset="/img/aboutUs/aboutUs_1_320.jpg 320w" src="/img/aboutUs/aboutUs_1.jpg" sizes="" alt="девушка в неоновом свете")
+      form.aboutUs-form
+        label.aboutUs-form__label
+          span Подписаться на рассылку
+          input.aboutUs-form__input(type="text" placeholder="E-mail")
+        button.aboutUs-form__button.btn-full(type="submit") Отправить
