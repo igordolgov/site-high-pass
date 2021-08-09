@@ -1,0 +1,38 @@
+
+header.header#header
+  .container
+    .header__content
+      +logo
+      div.burger
+        button.burger__button
+          span.burger__lines
+        button.burger__buttonClose
+          span
+      nav.nav
+        .container
+          ul.nav__list
+            li.nav__item
+              a(class="nav__link" href="#aboutUs") О студии
+            li.nav__item
+              a(class="nav__link" href="#ourProjects") Наши проекты
+            li.nav__item
+              a(class="nav__link" href="#ourServices") Услуги
+            li.nav__item
+              a(class="nav__link" href="#masterclasses") Мастер-классы
+            li.nav__item
+              a(class="nav__link" href="#contacts") Контакты
+          +ourPhone
+      ul.socials__list
+        +socilsItems
+      .ourPhone
+        +ourPhone
+      .search
+        form.search__form
+          input(class="search__input" type="text" placeholder="Что будем искать?")
+        button.search__button(tabindex="-1")
+          svg
+            use(xlink:href="img/svg/sprite.svg#search")
+        button.search__buttonClose
+          span
+
+

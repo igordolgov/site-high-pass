@@ -1,0 +1,76 @@
+
+-var pictures = [ { unique: 'hero-works__picture-1', pic:'/img/hero/hero_2.jpg', picWebp:'/img/hero/hero_2.webp', x320webp: '/img/hero/hero_2_320.webp', x320jpg: '/img/hero/hero_2_320.jpg  320w', x768webp: '/img/hero/hero_2_768.webp', x768jpg: '/img/hero/hero_2_768.jpg  768w', x1024webp: '/img/hero/hero_2_1024.webp', x1024jpg: '/img/hero/hero_2_1024.jpg  1024w', }, { unique: 'hero-works__picture-2', pic:'/img/hero/hero_3.jpg', picWebp:'/img/hero/hero_3.webp', x320webp: '/img/hero/hero_3_320.webp', x320jpg: '/img/hero/hero_3_320.jpg  320w', x768webp: '/img/hero/hero_3_768.webp', x768jpg: '/img/hero/hero_3_768.jpg  768w', x1024webp: '/img/hero/hero_3_1024.webp', x1024jpg: '/img/hero/hero_3_1024.jpg  1024w', }, { unique: 'hero-works__picture-3', pic:'/img/hero/hero_4.jpg', picWebp:'/img/hero/hero_4.webp', x320webp: '/img/hero/hero_4_320.webp', x320jpg: '/img/hero/hero_4_320.jpg  320w', x768webp: '/img/hero/hero_4_768.webp', x768jpg: '/img/hero/hero_4_768.jpg  768w', x1024webp: '/img/hero/hero_4_1024.webp', x1024jpg: '/img/hero/hero_4_1024.jpg  1024w', }, ]
+//- -var pictures = [
+//-   {
+//-     unique: 'hero-works__picture-1',
+//-     pic:'/img/hero/hero_2.jpg',
+//-     picWebp:'/img/hero/hero_2.webp',
+//-     x320webp: '/img/hero/hero_2_320.webp',
+//-     x320jpg: '/img/hero/hero_2_320.jpg  320w',
+//-     x768webp: '/img/hero/hero_2_768.webp',
+//-     x768jpg: '/img/hero/hero_2_768.jpg  768w',
+//-     x1024webp: '/img/hero/hero_2_1024.webp',
+//-     x1024jpg: '/img/hero/hero_2_1024.jpg  1024w',
+//-   },
+//-   {
+//-     unique: 'hero-works__picture-2',
+//-     pic:'/img/hero/hero_3.jpg',
+//-     picWebp:'/img/hero/hero_3.webp',
+//-     x320webp: '/img/hero/hero_3_320.webp',
+//-     x320jpg: '/img/hero/hero_3_320.jpg  320w',
+//-     x768webp: '/img/hero/hero_3_768.webp',
+//-     x768jpg: '/img/hero/hero_3_768.jpg  768w',
+//-     x1024webp: '/img/hero/hero_3_1024.webp',
+//-     x1024jpg: '/img/hero/hero_3_1024.jpg  1024w',
+//-   },
+//-   {
+//-     unique: 'hero-works__picture-3',
+//-     pic:'/img/hero/hero_4.jpg',
+//-     picWebp:'/img/hero/hero_4.webp',
+//-     x320webp: '/img/hero/hero_4_320.webp',
+//-     x320jpg: '/img/hero/hero_4_320.jpg  320w',
+//-     x768webp: '/img/hero/hero_4_768.webp',
+//-     x768jpg: '/img/hero/hero_4_768.jpg  768w',
+//-     x1024webp: '/img/hero/hero_4_1024.webp',
+//-     x1024jpg: '/img/hero/hero_4_1024.jpg  1024w',
+//-   },
+//- ]
+//- -var sizesVar = '(max-width: 567px) 290px, (min-width: 568px) and (max-width: 767px) 568px, (min-width: 768px) and (max-width: 1023px) 768px, (min-width: 1024px) and (max-width: 1779px) 924px, 1770px';
+-var sizesVar = '(max-width: 567px) 290px, (min-width: 568px) and (max-width: 767px) 568px, (min-width: 768px) and (max-width: 1023px) 668px, (min-width: 1024px) and (max-width: 1779px) 437px, 8770px';
+//- -var sizesVar = '(max-width: 567px) 290px,
+//-                  (min-width: 568px) and (max-width: 767px) 568px,
+//-                  (min-width: 768px) and (max-width: 1023px) 668px,
+//-                  (min-width: 1024px) and (max-width: 1779px) 437px,
+//-                  8770px';
+.hero#hero
+  .container
+
+    .hero__content
+      section.hero-promo
+        picture.hero-promo__picture
+          source(srcset="/img/hero/hero_1.webp" type="image/webp" media="(min-width: 1400px)")
+          source(srcset="/img/hero/hero_1_1024.webp" type="image/webp" media="(min-width: 1024px)")
+          source(srcset="/img/hero/hero_1_768.webp" type="image/webp" media="(min-width: 768px)")
+          source(srcset="/img/hero/hero_1_320.webp" type="image/webp" media="(max-width: 512px)")
+          img.hero-promo__img(loading="lazy" srcset="/img/hero/hero_1_320.jpg 320w" sizes=sizesVar src="/img/hero/hero_1.jpg" alt="фотограф")
+        .hero-promo__hashtag.hashtag
+          span.hashtag--wrapped #мастеркласс
+        .hero-promo-mainContent
+          p.hero-promo-mainContent__info Мастер-класс от Игоря Робова
+          h2.hero-promo-mainContent__title Неоновый фотосет&nbsp2.0 7&nbspиюля&nbsp20:00
+          a.hero-promo-mainContent__link.btn-full(href="#") Узнать больше
+
+
+      section.hero-works
+        h3.hero-works__title Работы участников предыдущего мастер-класса
+        .hero-works__wrapper
+          each pic in pictures
+            picture.hero-works__picture(class=pic.unique)
+              source(srcset=pic.picWebp type="image/webp" media="(min-width: 1400px)")
+              source(srcset=pic.x1024webp type="image/webp" media="(min-width: 1024px)")
+              source(srcset=pic.x768webp type="image/webp" media="(min-width: 768px)")
+              source(srcset=pic.x320webp type="image/webp" media="(max-width: 512px)")
+              img.hero-works__img(loading="lazy" srcset=(pic.x320jpg, pic.x768jpg) sizes=sizesVar src=pic.pic alt="девушка в неоновом свете")
+
+
+

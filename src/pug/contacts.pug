@@ -1,0 +1,25 @@
+section.contacts#contacts
+  .container
+    h2.contacts__title Контакты
+  .contacts__content--wrapped
+    .container
+      .contacts-map
+        .contacts-map__wrapper#yndexMap
+          script(src="https://api-maps.yandex.ru/2.1/?apikey=30c606be-6c96-48b4-a6a2-80eab6220ea3&lang=ru_RU")
+        .contacts-map__textInfo
+          .container
+            button.contacts-map__closeInfoBtn
+              span
+            h3.contacts-map__title Студия “High pass”
+            address.contacts-map__address 107045, Москва, Даев переулок, дом 41, бизнес-центр «Даев Плаза», этаж 8, офис № 82
+            +ourPhone
+      .contacts-formApp
+        .container
+          h3.contacts-formApp__title Оставить заявку
+          p.contacts-formApp__textInfo Оставьте ваши данные, указав в графе “Комментарий” желаемые время и дату съемки или другого мероприятия
+          form.contacts-formApp__form
+            input.contacts-formApp__input(type="text" placeholder="Имя")
+            input.contacts-formApp__input(type="text" placeholder="E-mail")
+            textarea.contacts-formApp__input(type="text" placeholder="Комментарий")
+            button.contacts-formApp__button.btn-full Отправить
+
