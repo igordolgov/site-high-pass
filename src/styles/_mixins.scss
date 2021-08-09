@@ -1,0 +1,73 @@
+@mixin transition ($prop) {
+  transition-property: $prop;
+  transition-timing-function: ease-out;
+  transition-duration: 0.3s;
+}
+@mixin hiddenWithAbs {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+@mixin hiddenWithAbsOff {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+}
+@mixin picture {
+  display: inline-block;
+  width: 100%;
+}
+@mixin img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+@mixin closeButton($backColor, $colorXbutton) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $backColor;
+  border-radius: 50%;
+
+  span {
+    position: relative;
+    width: 70%;
+    height: 70%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      width: 80%;
+      height: 1px;
+      display: inline-block;
+      background-color: $colorXbutton;
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
+    &::before {
+      transform: rotate(-45deg);
+    }
+  }
+}
+@mixin inputsActions {
+  &::placeholder {
+    @include transition(color);
+  }
+  &:hover {
+    &::placeholder {
+      color: $colorMain;
+    }
+  }
+  &:focus {
+    outline: none;
+    border-color: $colorMain;
+    &::placeholder {
+      color: $colorMainOpacity;
+    }
+  }
+}

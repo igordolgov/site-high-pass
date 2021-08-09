@@ -1,0 +1,104 @@
+@import 'variables';
+
+
+.aboutUs {
+  margin-bottom: 31px;
+  padding-top: 32px;
+  padding-bottom: 60px;
+  background-color: $colorBackgroudAboutUs;
+
+  &__input-text {
+    display: block;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 25px;
+    color: #cacaca
+  }
+  
+  &__title {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    color: $colorLight;
+  }
+  &__text {
+    margin-bottom: 22px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 25px;
+    color: $colorDarkLight1;
+  }
+  &__picture {
+    @include picture;
+    margin-bottom: 22px;
+  }
+  &__img {
+    @include img;
+  }
+
+  &-form {
+
+    &__align {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__label {
+      width: 100%;
+      margin-right: 18px;
+      font-size: 18px;
+      line-height: 22px;
+      color: $colorLight;
+
+      span + input {
+        margin-top: 14px;
+      }
+    }
+
+    &__input {
+      $props: border-color, color;
+      @include transition($props);
+      @include inputsActions;
+
+      width: 100%;
+      margin-right: 15px;
+      height: 40px;
+      margin-bottom: 0;
+      padding: 0 23px;
+      border: none;
+      font-size: 20px;
+      color: #fff;
+      background-color: $colorDarkLight;
+
+      &::placeholder {
+        @include transition(color);
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: $colorDarkLight1;
+      }
+    }
+
+    &__button {
+      padding: 10px 18px;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .aboutUs {
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &--left,
+    &--right {
+      flex: 0 1 49%;
+    }
+  }
+}
