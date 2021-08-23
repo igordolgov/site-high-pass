@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .ourServices {
-  margin-bottom: 50px;
+  margin-bottom: 47px;
 
   &__title {
     font-weight: bold;
@@ -18,11 +18,11 @@
     $prop: color, border, background-color;
     @include transition($prop);
 
-    padding: 3px;
+    padding: 0px;
     border-bottom: 4px solid transparent;
     font-weight: bold;
     font-size: 14px;
-    line-height: 28px;
+    line-height: 32px;
     color: $colorDarkLight4;
     z-index: 1;
     &:focus-visible {
@@ -56,7 +56,7 @@
 
   // ourServices__list
   &__list--wrapped {
-    margin-bottom: 22px;
+    margin-bottom: -2px;
   }
   &__list {
     @include hiddenWithAbs;
@@ -66,7 +66,6 @@
     &.active {
       @include hiddenWithAbsOff;
       height: 100%;
-      overflow: auto;
     }
   }
   &-executedWorks {
@@ -84,6 +83,7 @@
 
     &__picture {
       @include picture;
+      margin-bottom: 10px;
     }
 
     &__picture + &__title {
@@ -95,10 +95,10 @@
     }
 
     &__title {
-      margin-bottom: 7px;
+      margin-bottom: 9px;
       font-weight: normal;
       font-size: 16px;
-      line-height: 22px;
+      line-height: 18px;
     }
     &__text {
       margin-bottom: 5px;
@@ -108,6 +108,7 @@
       color: $colorDarkLight3;
     }
     &__link {
+      padding: 0px;
       display: flex;
       align-items: center;
       font-weight: bold;
@@ -128,6 +129,12 @@
 
   &-item-promo {
 
+    display: inline-block;
+
+    &--wrapped {
+      margin-bottom: 18px;
+    }
+
     &__head {
       position: absolute;
       width: 100%;
@@ -141,45 +148,50 @@
       font-weight: bold;
       font-size: 30px;
       line-height: 104%;
+      &--wrapped {
+        p {
+          font-size: 13px;
+          line-height: 24px;
+        }
+      }
     }
     p {
       font-family: 'TT Firs Neue';
       font-weight: bold;
-      font-size: 18px;
-      line-height: 22px;
     }
     &__bonusInfo {
       width: 85px;
+      height: 43px;
       display: inline-flex;
       justify-content: center;
       align-items: center;
+      top: 5px;
       border: 3px solid $colorPromo;
       border-radius: 100%;
+      font-size: 21px;
     }
 
     &__foot {
       position: absolute;
       padding: 30px;
-      bottom: 0;
+      bottom: 3px;
     }
     &__text {
       margin-bottom: 16px;
+      font-weight: normal !important;
+      font-style: normal;
       font-size: 14px;
       line-height: 18px;
       color: $colorLight;
     }
     &__link {
-      padding: 12px 22px;
+      padding: 10px 21px;
       display: inline-block;
       font-weight: bold;
       font-size: 14px;
       line-height: 16px;
     }
   }
-
-
-
-  // ourServices-executedWorks
 
   &-executedWorks {
 
@@ -192,53 +204,155 @@
     &__list {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      grid-column-gap: 30px;
+      grid-row-gap: 25.6px;
+    }
+    &__link {
+      padding: 0;
+      .ourServices-item__picture {
+        margin-bottom: 0;
+      }
     }
   }
 }
 
-@media (min-width: 768px) {
-  $_gap: 30px;
+@media (min-width: 762px) {
+  .ourServices {
+    margin-bottom: 33px;
 
-  .ourServices-switch--wrapped {
-    width: calc(50% - (#{$_gap} / 2));
+    &__title {
+      margin-bottom: 11px;
+      font-size: 24px;
+    }
+    &-switch {
+      &--wrapped{
+        width: calc(50% - (30px / 2));
+      }
+      &__button {
+        font-size: 16px;
+      }
+    }
+    &__head {
+      margin-bottom: 30px;
+    }
   }
 
   .ourServices__list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: $_gap;
+    grid-column-gap: 30px;
+    grid-row-gap: 21px;
+
+    &--wrapped {
+      margin-bottom: 23px;
+    }
   }
 
+  .ourServices-item {
+    position: static;
+    height: 100%;
+    margin-bottom: 0px;
+
+    &__info--wrapped {
+      width: 100%;
+      position: static;
+      padding-bottom: 18px;
+    }
+    &__title {
+      width: 101%;
+      margin-bottom: 7px;
+      font-size: 24px;
+      line-height: 22px;
+    }
+    &__text {
+      width: 100%;
+      margin-bottom: 11px;
+      font-size: 16px;
+      line-height: 22px;
+    }
+    &__link {
+      position: absolute;
+      bottom: 0;
+      font-weight: bold;
+      font-size: 16px;
+      svg{
+        width: 22px;
+        height: 12px;
+      }
+    }
+  }
+
+  .ourServices-item-promo {
+    &--wrapped {
+      margin-bottom: 19px;
+    }
+    &__bonusInfo {
+      width: 115px;
+      height: 60px;
+      top: -1px;
+      font-size: 30px;
+    }
+    &__title--wrapped {
+      p {
+        font-family: 'Roboto';
+        font-size: 16px;
+      }
+    }
+    &__title {
+      font-size: 36px;
+    }
+    &__foot {
+      bottom: 3px;
+    }
+    &__text {
+      width: 58%;
+      margin-bottom: 10px;
+      font-family: 'Roboto'!important;
+      font-size: 16px;
+      line-height: 22px;
+    }
+    &__link {
+      padding: 15px 21px;
+      font-size: 16px;
+    }
+  }
   .ourServices-executedWorks {
+    &__title {
+      font-size: 24px;
+    }
     &__list {
       grid-template-columns: repeat(6, 1fr);
-      gap: 30px;
+      gap: 28px;
     }
   }
 }
 
 @media(min-width: 1024px) {
   .ourServices {
-
     $_gap: 10px;
+
+    margin-bottom: 3px;
 
     .container {
       display: grid;
-      grid-template-columns: 8fr, 4fr;
+      grid-template-columns: 5fr 2.8fr;
       grid-template-rows: auto auto auto;
       gap: $_gap;
     }
     &__head {
+      margin-bottom: 0px;
       grid-column: 1 / 2;
       grid-row: 1 / 2;
       .ourServices-switch--wrapped {
         width: 410px;
       }
     }
-    &__list--wrapped {
-      grid-column: 1 / 2;
-      grid-row: 2 / 3;
+    &__list {
+      gap: 16px;
+      &--wrapped {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
     }
     &__list--1 {
       grid-template-columns: 1fr;
@@ -247,25 +361,124 @@
         gap: $_gap;
       }
     }
-    &-item-promo__wrapper {
-      grid-column: 2 / 3;
-      grid-row: 1 / 4;
+    .ourServices-item {
+      margin-bottom: 0px;
+      display: flex;
+      align-items: center;
+      gap: $_gap;
+
+      &__picture {
+        max-width: 218px;
+        margin-bottom: 0px;
+        flex: 0 1 64%;
+      }
+      &__img {
+        width: 218px;
+        height: 184px;
+        flex: 0 1 64%;
+      }
+      &__info--wrapped {
+        padding-left: 22px;
+        padding-bottom: 0;
+      }
+      &__text {
+        width: 95%;
+      }
+      &__link {
+        position: relative;
+      }
+    }
+    .ourServices__list--2 {
+
+      grid-column-gap: 30px;
       &.active {
-        grid-row: 2 / 4;
+        margin-right: 15px;
+      }
+      .ourServices-item {
+        flex-direction: column;
+
+        &__picture {
+          max-width: 100%;
+        }
+        &__img {
+          width: 100%;
+          height: 140px;
+        }
+        &__info--wrapped {
+          padding-left: 0px;
+        }
+      }
+    }
+    &-item-promo {
+      &--wrapped {
+        margin-bottom: 30px;
+      }
+      &__wrapper {
+        padding-top: 6px;
+        grid-column: 2 / 3;
+        grid-row: 1 / 4;
+        &.active {
+          padding-top: 0px;
+          grid-row: 2 / 4;
+        }
+      }
+      &__head {
+        height: 370px;
+        flex-direction: column;
+      }
+      &__text {
+        width: 75%;
       }
     }
     &-executedWorks {
       &__list {
         grid-template-columns: repeat(3, 1fr);
-        gap: $_gap;
+        grid-row-gap: 17px;
+        grid-column-gap: 30px;
       }
     }
   }
 }
-@media(min-width: 1024px) {
-  $_gap: 10px;
-  .ourServices-item {
-    display: flex;
-    gap: $_gap;
+@media(min-width: 1400px) {
+
+  .ourServices {
+    margin-bottom: 0px;
+  }
+
+  .container {
+    grid-template-columns: 6fr 2.8fr !important;
+  }
+  .ourServices__list {
+    gap: 21.5px;
+  }
+  .ourServices__list--1 {
+
+    .ourServices-item {
+      &__picture {
+        max-width: 300px;
+        margin-bottom: 0px;
+        flex: 0 1 64%;
+      }
+      &__img {
+        width: 300px;
+        height: 140px;
+        flex: 0 1 64%;
+      }
+      &__info--wrapped {
+        padding-left: 18px;
+      }
+    }
+  }
+  .ourServices-item-promo {
+    &__text {
+      width: 64%;
+    }
+  }
+  .ourServices-executedWorks {
+    &__list {
+      grid-template-columns: repeat(4, 1fr);
+      grid-row-gap: 27px;
+      grid-column-gap: 30px;
+    }
   }
 }

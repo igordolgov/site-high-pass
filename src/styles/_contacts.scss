@@ -2,11 +2,20 @@
 @import 'variables';
 @import 'mixins';
 
+[class*="ground-pane"]{
+  filter: grayscale(100%);
+} 
 .contacts {
   margin-bottom: 50px;
 
+  .container {
+    width: 100%;
+  }
+
   &__title{
     margin-bottom: 15px;
+    padding-top: 3px;
+    padding-left: 6%;
     font-weight: bold;
     font-size: 18px;
     line-height: 23px;
@@ -14,26 +23,18 @@
 }
 
 .contacts-map {
-
   margin-bottom: 23px;
-
-  .container {
-    padding-top: auto;
-    padding-bottom: auto;
-    padding-left: 20px;
-  }
 
   &__wrapper {
     width: 100%;
-    height: 430px;
-    filter: grayscale(100%);
+    height: 471px;
   }
-
+  
   &__closeInfoBtn {
     @include closeButton($colorDarkLight4, $colorLight);
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 21px;
+    right: 19px;
     width: 20px;
     height: 20px;
   }
@@ -41,22 +42,19 @@
   &__textInfo {
     position: absolute;
     bottom: 0;
-    margin: auto 0;
-    align-items: center;
-    width: 60%;
-    height: 100%;
+    width: 100%;
+    padding: 26px 33px 14px 17px;
     background-color: color.change($colorDark, $alpha: 0.85);
     color:$colorLight;
   }
   &__title {
-    margin-top: 45%;
     margin-bottom: 10px;
+    font-weight: normal;
     font-size: 18px;
     line-height: 22px;
   }
   &__address {
     margin-bottom: 11px;
-    width: 100%;
     font-style: normal;
     font-size: 14px;
     line-height: 18px;
@@ -65,8 +63,12 @@
 }
 
 .contacts-formApp {
+  .container {
+    width: 87%;
+  }
   &__title {
     margin-bottom: 7px;
+    font-weight: normal;
     font-size: 18px;
     line-height: 22px;
   }
@@ -93,47 +95,200 @@
   }
   textarea {
     height: 150px;
+    margin-bottom: 16px;
     resize: none;
   }
   &__button {
-    padding: 12px 22px;
+    padding: 10.5px 22px;
   }
 }
 @media(max-width: 1023px) {
-  .contacts__content--wrapped {
+  .contacts-map__textInfo {
     .container {
       width: 100%;
     }
   }
 }
 
-@media(min-width: 768px) {
+@media(min-width: 762px) {
+  .contacts {
+    margin-bottom: 69px;
+
+    .container {
+      width: 93.7%;
+    }
+    &__title {
+      margin-bottom: 26px;
+      padding-left: 0;
+      font-size: 24px;
+    }
+  }
+  .contacts__content--wrapped {
+    .container {
+      width: 93.7%;
+    }
+  }
+  .contacts-map {
+    .container {
+      width: 100%;
+      transform: translateX(0px);
+    }
+    &__closeInfoBtn {
+      top: -5px;
+      right: -18px;
+    }
+    &__textInfo {
+      padding: 25px 37px 28px 30px
+    }
+    &__wrapper {
+      height: 460px;
+    }
+    &__title {
+      margin-bottom: 5px;
+      font-size: 24px;
+    }
+    &__address {
+      width: 65%;
+      margin-bottom: -1px;
+      font-size: 16px;
+      line-height: 28px;
+    }
+    .ourPhone__link {
+      bottom: -1px;
+      left: -7px;
+      font-weight: normal;
+      font-size: 16px;
+    }
+  }
   .contacts-formApp {
     .container {
-      padding-right: 30%;
-      padding-left: 10px;
+      width: 100%;
+      padding: 1px 2px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+    &__textInfo {
+      width: 65%;
+      font-family: "Roboto";
+      font-size: 16px;
+      line-height: 21px;
+    }
+    &__form {
+      width: 65.8%;
+    }
+    &__input {
+      height: 50px;
+    }
+    &__button {
+      padding: 13px 21px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    textarea {
+      margin-bottom: 15px;
     }
   }
 }
 @media(min-width: 1024px) {
+  .contacts {
+    margin-bottom: 47px;
+    padding-top: 10px;
+
+    &__title {
+      margin-bottom: 26px;
+      font-size: 24px;
+    }
+  }
   .contacts__content--wrapped {
     & > .container {
       display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(8, 1fr) !important;
+      gap: 30px;
     }
   }
+
   .contacts-map{
     grid-column: 1/6;
     grid-row: 1/2;
-  }
-  .contacts-formApp {
-    grid-column: 6/9;
-    grid-row: 1/2;
+
     .container {
       width: 100%;
       padding: 0;
-      padding-left: 10px;
+    }
+    &__textInfo {
+      padding: 25px 37px 0px 30px
+    }
+    &__address {
+      width: 57%;
+    }
+    .ourPhone__link {
+      bottom: 26px;
+      left: 84px;
+    }
+  }
+
+  .contacts-formApp {
+    top: -7px;
+    grid-column: 6/9;
+    grid-row: 1/2;
+
+    .container {
+      width: 100%;
+      padding: 0;
+    }
+    &__textInfo {
+      width: 90%;
+    }
+    &__form {
+      width: 100%;
+    }
+    &__input {
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+  }
+}
+@media(min-width: 1400px) {
+  .contacts > .container {
+    width: 1290px;
+  }
+  .contacts__content--wrapped {
+    & > .container {
+      width: 1290px;
+      grid-template-columns: repeat(12, 1fr) !important;
+      gap: 30px;
+    }
+  }
+  .contacts-map{
+    grid-column: 1/9;
+
+    &__closeInfoBtn {
+      top: -156px;
+      right: 20px;
+    }
+    &__textInfo {
+      width: 48.35%;
+      height: 100%;
+      padding: 20.7% 0% 0% 7%;
+    }
+    &__address {
+      width: 84%;
+    }
+    .ourPhone__link {
+      bottom: -1px;
+      left: -5px;
+    }
+  }
+  .contacts-formApp {
+    grid-column: 9/13;
+
+    &__textInfo {
+      width: 100%;
     }
   }
 }

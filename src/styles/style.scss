@@ -28,10 +28,14 @@ html {
   font-family: 'Roboto';
   color: $colorDark;
 }
+// body {
+//   padding: 115px;
+// }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'TT Firs Neue';
 }
 button {
+  font-family: 'Roboto';
   cursor: pointer;
 }
 a {
@@ -57,11 +61,20 @@ a {
   width: 87%;
   margin: auto;
   @media(min-width: 512px) {
-    width: 93%;
+    width: 93.7%;
+    transform: translateX(-3px);
+
+  }
+  @media(min-width: 1024px) {
+    width: 93.9%;
+    transform: translateX(0px);
   }
   @media(min-width: 1400px) {
     width: 1290px;
   }
+}
+.text--noWrap {
+  white-space: nowrap;
 }
 .btn,
 .btn-full {
@@ -111,15 +124,20 @@ a {
 }
 .hashtag {
   position: absolute;
-  padding-top: 10px;
+  top: -1px;
+  right: 5px;
+  padding-top: 6px;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
 
   &--wrapped {
-    padding: 4px 7px;
+    width: 100%;
+    padding: 4px 14px;
+    display: inline-block;
     background-color: $colorBackgroudHashtag;
     color: $colorLight;
+    text-align: right;
   }
 }
 .ourPhone__link {

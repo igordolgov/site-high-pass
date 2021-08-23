@@ -9,6 +9,7 @@
 }
 .footer {
   .container {
+    width: 100%;
     display: flex;
     flex-direction: column-reverse;
   }
@@ -16,7 +17,7 @@
 
 .footer-socials {
   width: 100%;
-  padding: 30px 0;
+  padding: 33px 0 26px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,29 +39,32 @@
 }
 
 .footer-logo {
-  padding: 15px 0;
+  padding: 10px 0 11px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: $colorDarkLight;
 
-  .container {
-    @include flexContainer;
+
+  & .logo{
+    padding-left: 8px;
   }
 
   &__text {
+    font-family: 'TT Firs Neue';
     font-size: 10px;
     line-height: 13px;
     color: $colorDarkLight5;
   }
 }
 
-@media(min-width: 768px) {
+@media(min-width: 762px) {
   .footer {
     padding: 24px 0;
     background-color: $colorDark;
 
     .container {
+      width: 96.9%;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -76,11 +80,25 @@
       justify-content: center;
       background-color: transparent;
     }
+    &-logo__text {
+      top: -1px;
+      left: 11px;
+      width: 102%;
+      font-size: 14px;
+    }
     &-socials {
-      width: 160px;
+      width: 173px;
       padding: 0;
       display: block;
       background-color: transparent;
+
+
+      .socials__list {
+        right: 4px;
+      }
+      .socials__item+.socials__item {
+        margin-left: -20px;
+      }
     }
   }
 }
@@ -90,15 +108,87 @@
   }
 }
 @media(min-width: 1024px) {
+  .footer {
+    padding: 18px 0;
+    .container {
+      width: 95.5%;
+    }
+  }
+  .footer-logo__text {
+    top: 4px;
+    left: 7px;
+  }
   .footer-text {
     &-wrapped {
       display: block;
+      top: 6px;
+      left: 7px;
+      width: 37%;
+      margin: auto;
+      font-size: 16px;
+      line-height: 22px;
     }
     &--light {
       color:$colorLight;
     }
     &--dark {
       color:$colorDarkLight4;
+    }
+  }
+  .footer-socials {
+    width: 175px;
+
+    &__title {
+      top: 5px;
+      left: 5px;
+      font-family: "Roboto";
+    }
+    .socials__list {
+      justify-content: center;
+    }
+    .socials__item+.socials__item {
+      margin-left: 20px;
+    }
+  }
+}
+@media(min-width: 1400px) {
+  .footer {
+    .container {
+      width: 1290px;
+    }
+
+    &-logo {
+      .logo {
+        top: -1px;
+        padding-left: 0px;
+
+        &__link {
+          svg{
+            width: 191px;
+            height: 33px;
+          }
+        }
+      }
+      &__text {
+        top: 1px;
+        left: 1px;
+      }
+    }
+    &-text {
+      &-wrapped {
+        width: 31%;
+        padding-right: 25px;
+      }
+    }
+    &-socials {
+      &__title {
+        left: 15px;
+      }
+
+      .socials__list {
+        top: 5px;
+        left: 7px;
+      }
     }
   }
 }

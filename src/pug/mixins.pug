@@ -1,4 +1,20 @@
--var socials = [ { id: '#instagram', href: '#', path: "img/svg/sprite.svg#instagram", }, { id: '#fb', href: '#', path: "img/svg/sprite.svg#fb", }, { id: '#vk', href: '#', path: "img/svg/sprite.svg#vk", }, ]
+-var socials = [ { id: '#instagram', href: '#', path: "./img/svg/sprite.svg#instagram", }, { id: '#fb', href: '#', path: "./img/svg/sprite.svg#fb", }, { id: '#vk', href: '#', path: "./img/svg/sprite.svg#vk", }, ] //- -var socials = [
+//-   {
+//-     id: '#instagram',
+//-     href: '#',
+//-     path: "img/svg/sprite.svg#instagram",
+//-   },
+//-   {
+//-     id: '#fb',
+//-     href: '#',
+//-     path: "img/svg/sprite.svg#fb",
+//-   },
+//-   {
+//-     id: '#vk',
+//-     href: '#',
+//-     path: "img/svg/sprite.svg#vk",
+//-   },
+//- ]
 -var n = 7;
 mixin ourPhone
   a(class="ourPhone__link" href="tel:+74952423532")
@@ -10,7 +26,7 @@ mixin logo
     a(class="logo__link" href="#")
       svg
         use(xlink:href="img/svg/sprite.svg#logo")
-mixin socilsItems
+mixin socialsItems
  each link in socials
   li.socials__item
     a.socials__link(href=link.href)

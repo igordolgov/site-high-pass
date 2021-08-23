@@ -1,4 +1,3 @@
-
 header.header#header
   .container
     .header__content
@@ -23,16 +22,14 @@ header.header#header
               a(class="nav__link" href="#contacts") Контакты
           +ourPhone
       ul.socials__list
-        +socilsItems
+        +socialsItems
       .ourPhone
         +ourPhone
       .search
         form.search__form
           input(class="search__input" type="text" placeholder="Что будем искать?")
-        button.search__button(tabindex="-1")
+        button.search__button
           svg
             use(xlink:href="img/svg/sprite.svg#search")
         button.search__buttonClose
           span
-
-

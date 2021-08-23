@@ -10,21 +10,22 @@ $_headerRowHead: 70px;
 $_headerRowFoot: 45px;
 
 .header {
-
-  a:not(.socials__link, .logo__link):focus-visible {
-    outline: none;
-    background-color: $colorMainFocusDark;
-  }
-
-
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 115px;
-  margin-bottom: 34px;
   background-image: linear-gradient(
     to bottom,
     $colorDark $_headerRowHead,
     $colorDarkLight $_headerRowFoot
   );
+  z-index: 999;
+
+  a:not(.socials__link, .logo__link):focus-visible {
+    outline: none;
+    background-color: $colorMainFocusDark;
+  }
 
   &__content {
     position: static;
@@ -99,7 +100,7 @@ $_headerRowFoot: 45px;
   }
   .ourPhone__link {
     @include hiddenWithAbs;
-    bottom: 35px;
+    top: 480px;
   }
 }
 
@@ -178,7 +179,7 @@ $_headerRowFoot: 45px;
     position: absolute;
     top: -1px;
     left: -0;
-    width: 100%;
+    width: 88%;
     height: 110%;
     background-color: $colorDark;
   }
@@ -217,8 +218,8 @@ $_headerRowFoot: 45px;
   }
 
   &__button {
-    top: 2px;
-    right: 4px;
+    top: 0px;
+    right: -6px;
     @include transition(opacity);
     svg {
       @include iconsSize320;
@@ -230,7 +231,8 @@ $_headerRowFoot: 45px;
     @include hiddenWithAbs;
     @include iconsSize320;
     @include closeButton($colorDarkLight2, $colorLight);
-    // background-color: $colorDarkLight2;
+    position: absolute;
+    left: 0;
   }
 }
 
@@ -250,33 +252,95 @@ $_headerRowFoot: 45px;
       width: 18px;
       height: 16px;
       top: 3px;
-      position: relative;
     }
   }
 }
-@media(min-width: 768px) {
+@media (min-width: 512px ) {
+  .nav {
+    left: -2.8%;
+
+    .container {
+      position: static;
+    }
+  }
+}
+@media (min-width: 661px ) {
+  .nav {
+    left: -2.9%;
+  }
+}
+@media(min-width: 762px) {
   .header {
+
+    .container {
+      transform: translateX(0px);
+    }
+
     &__content {
       grid-template-columns: 3fr 2fr 0.2fr;
     }
   }
 
   .logo {
+    top: -3px;
+    left: 0px;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+
+    &__link {
+      svg {
+        width: 166px;
+        height: 27px;
+      }
+    }
   }
   .search {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
     text-align: right;
     &.active {
-      grid-column: 1 / 3;
+      grid-column: 2 / 4;
+
+      .search__buttonClose {
+        top: -9px;
+        left: 0px;
+      }
+    }
+    &__form.active {
+      top: -12px;
+      height: 30px;
+    }
+    &__button {
+      top: -7px;
+      right: -4px;
+      svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    &__buttonClose {
+      top: -5px;
+      left: 13px;
     }
   }
   .ourPhone {
+    bottom: 5px;
+    right: 2px;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    text-align: right;
+    text-align: center;
+
+    &__link {
+      font-weight: bold;
+      font-size: 16px;
+      left: 5px;
+      bottom: 2px;
+
+      svg {
+        width: 26px;
+        height: 18px;
+      }
+    }
   }
 
   .burger {
@@ -285,6 +349,7 @@ $_headerRowFoot: 45px;
   .nav {
     position: relative;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     grid-column: 1 / 4;
@@ -302,6 +367,7 @@ $_headerRowFoot: 45px;
     &__list {
       @include hiddenWithAbsOff;
       position: relative;
+      width: 101%;
       height: 100%;
       padding-top: 0;
       display: flex;
@@ -312,34 +378,54 @@ $_headerRowFoot: 45px;
       margin-top: 0px;
       // margin-left: 30px;
     }
+    .ourPhone__link {
+      display: none;
+    }
   }
 }
 
 @media(min-width: 1024px) {
+  .header {
+    margin-bottom: 40px;
+
+    .nav {
+      top: -4px;
+    }
+    .socials__list {
+      top: -2px;
+    }
+  }
   .header__content {
     grid-template-columns: 1fr 5fr 1fr 1fr;
   }
-
+  .logo {
+    left: -3px;
+  }
   .nav {
     grid-column: 2 / 4;
     grid-row: 1 / 2;
 
     &__list {
-      justify-content: space-around;
+      width: 93%;
+      justify-content: space-between;
     }
+    & .container {
+      width: 97.5%;
   }
-
+  }
   .ourPhone {
+    top: 1px;
+    right: 15px;
     grid-column: 1 / 2;
     grid-row: 2 / 2;
   }
-
   .search {
+    top: 1px;
+    left: -2px;
     grid-column: 3 / 5;
     grid-row: 2 / 2;
     display: flex;
     flex-direction: row-reverse;
-
     &.active {
       grid-column: 3 / 5;
       .search__button {
@@ -349,24 +435,45 @@ $_headerRowFoot: 45px;
         @include hiddenWithAbs;
       }
     }
+    &__button {
+      top: -1px;
+      right: 4px;
+      svg {
+        width: 17px;
+        height: 17px;
+      }
+    }
     &__form {
-      width: 100%;
+      width: 83%;
       height: 100%;
+      padding: 1px;
     }
     &__form.active {
       position: relative;
-      top: 0;
+      top: -2px;
       left: 0;
-      width: 100%;
+      width: 83%;
       height: 100%;
       background-color: transparent;
     }
     &__input {
       @include hiddenWithAbsOff;
+      top: -3px;
       width: 100%;
+      padding: 1px 1px;
+
+      &::placeholder {
+        font-family: TT Firs Neue;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 21px;
+      }
     }
   }
   .socials__list{
+    top: 3px;
+    left: 0px;
     grid-column: 4 / 5;
     grid-row: 1 / 2;
     display: flex !important;
@@ -375,7 +482,40 @@ $_headerRowFoot: 45px;
 }
 
 @media(min-width: 1300px) {
+  .logo__link {
+    svg {
+      width: 190px;
+      height: 30px;
+    }
+  }
+  .nav {
+    &__list {
+      justify-content: center;
+      left: 62px;
+    }
+    &__item {
+      & + & {
+        margin-left: 74px;
+      }
+    }
+  }
+  .socials__list {
+    justify-content: center;
+    left: 12px;
+  }
   .ourPhone__link {
     color: $colorLight;
+  }
+  .search {
+    &__form,
+    &__form.active {
+      width: 54%;
+    }
+    &__input::placeholder {
+      font-size: 14px;
+    }
+    &__button {
+      right: 7px;
+    }
   }
 }
