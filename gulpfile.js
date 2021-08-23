@@ -2,8 +2,6 @@ const devFolder = 'dev';
 const distFolder = 'dist';
 const srcFolder = 'src';
 
-const fs = require('fs');
-
 const path = {
   dev: {
     html: devFolder + '/',
@@ -33,19 +31,19 @@ const path = {
   watch: {
     pug: srcFolder + '/pug/*.pug',
     html: srcFolder + '/**/*.html',
-    css: srcFolder + '/styles/style.scss',
+    css: srcFolder + '/styles/**/*.scss',
     js: srcFolder + '/js/**/*.js',
     img: srcFolder + '/img/**/*.{jpg, jpeg, png, svg, gif, ico, webp}',
     svg: srcFolder + '/img/svg/*.svg',
   },
 }
 
-
 const {
   src,
   dest
 } = require('gulp');
 const gulp = require('gulp');
+const fs = require('fs');
 const browserSync = require('browser-sync').create();
 const htmlMin = require('gulp-htmlmin');
 const del = require('del');
@@ -80,11 +78,13 @@ const watchFilesBrowserSync = (opts) => {
 const pug2html = () => {
   return src(path.src.pug)
     .pipe(pug())
+    // .pipe(webpHtml())
     .pipe(dest(path.dist.html))
 }
 const pug2htmlDev = () => {
   return src(path.src.pug)
     .pipe(pug())
+    // .pipe(webpHtml())
     .pipe(dest(path.dev.html))
     .pipe(browserSync.stream())
 }
@@ -111,12 +111,9 @@ const htmlMinifyDev = () => {
 // SCSS
 const styles = () => {
   return src(path.src.css)
-    .pipe(scss({
-      outputStyle: 'expanded',
-    }))
-    .pipe(autoprefixer({
-      cascade: false,
-    }))
+    // .pipe(concat('style.scss'))
+    .pipe(scss())
+    .pipe(autoprefixer())
     .pipe(cleanCss({
       level: 2,
     }))
@@ -125,6 +122,7 @@ const styles = () => {
 const stylesDev = () => {
   return src(path.src.css)
     .pipe(sourcemaps.init())
+    // .pipe(concat('style.scss'))
     .pipe(scss({
       outputStyle: 'expanded',
     }))
@@ -179,7 +177,14 @@ const images = () => {
     }))
     .pipe(dest(path.dist.img))
     .pipe(src(path.src.img))
-    .pipe(imageMin())
+    .pipe(imageMin({
+      progressive: true,
+      svgoPlugins: [{
+        removeViewBox: false
+      }],
+      interlaced: true,
+      optimizationLevel: 3,
+    }))
     .pipe(dest(path.dist.img))
 }
 const imagesDev = () => {
@@ -199,6 +204,16 @@ const imagesDev = () => {
     }))
     .pipe(dest(path.dev.img))
     .pipe(browserSync.stream())
+}
+
+// SVG mapdote
+const svgMapdote = () => {
+  return src('src/img/contacts/*.svg')
+    .pipe(dest('dist/img/contacts/'))
+}
+const svgMapdoteDev = () => {
+  return src('src/img/contacts/*.svg')
+    .pipe(dest('dev/img/contacts/'))
 }
 
 // SVG SPRITES
@@ -265,7 +280,6 @@ const fontsStyleDev = () => {
 
 const cb = () => {}
 
-
 // CLEAN FOLDER
 const cleanDev = () => {
   return del([path.dev.html])
@@ -284,9 +298,11 @@ const watchFiles = (opts) => {
   gulp.watch([path.watch.svg], svgSpritesDev);
 }
 
-const dev = gulp.series(cleanDev,  htmlMinifyDev, gulp.parallel(pug2htmlDev, imagesDev, svgSpritesDev, scriptsDev, stylesDev, fontsDev,));
-const build = gulp.series(cleanDist, htmlMinify, styles, scripts, svgSprites, images, pug2html, fonts);
+const dev = gulp.series(cleanDev,  htmlMinifyDev, gulp.parallel(pug2htmlDev, imagesDev, svgSpritesDev, scriptsDev, stylesDev, fontsDev, svgMapdoteDev));
+const build = gulp.series(cleanDist, htmlMinify, styles, scripts, svgSprites, images, pug2html, fonts, svgMapdote);
 const watch = gulp.parallel(dev, watchFiles, watchFilesBrowserSync);
+
+// exports.fontsStyleDev = fontsStyleDev;
 
 exports.pug2html = pug2html;
 exports.pug2htmlDev = pug2htmlDev;
